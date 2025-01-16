@@ -21,6 +21,21 @@
         '*': (a, b) => a * b,
         '/': (a, b) => b !== 0 ? a / b : "Error: Division by zero"
     };
+
+    const output = document.getElementById('output');
+
+    document.getElementById('calcButton').addEventListener('click', function () {
+        var num1 = parseFloat(document.getElementById('01').value);
+        var num2 = parseFloat(document.getElementById('02').value);
+        var operator = document.getElementById('operator').value;
+
+        var result = checkNumbers(num1, num2, operator);
+
+        if (result !== null) {
+            output.style.color = "black";
+            output.innerHTML = result;
+        }
+    });
 </script>
 
 </html>
