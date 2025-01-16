@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 
 <body>
@@ -24,12 +24,28 @@
 
     const output = document.getElementById('output');
 
+    function calculateFunc(a, b, o) {
+        if (isNaN(a) || isNaN(b)) {
+            output.style.color = "red";
+            output.innerHTML = "Error: Invalid input";
+            return null;
+        }
+
+        if (!(o in operators)) {
+            output.style.color = "red";
+            output.innerHTML = "Error: Invalid operator";
+            return null;
+        }
+
+        return operators[o](a, b);
+    }
+
     document.getElementById('calcButton').addEventListener('click', function () {
         var num1 = parseFloat(document.getElementById('01').value);
         var num2 = parseFloat(document.getElementById('02').value);
         var operator = document.getElementById('operator').value;
 
-        var result = checkNumbers(num1, num2, operator);
+        var result = calculateFunc(num1, num2, operator);
 
         if (result !== null) {
             output.style.color = "black";
