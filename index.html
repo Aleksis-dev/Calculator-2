@@ -14,4 +14,13 @@
     <button id="calcButton">Calculate</button>
     <p id="output"></p>
 </body>
+<script>
+    const operators = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => b !== 0 ? a / b : "Error: Division by zero"
+    };
+</script>
+
 </html>
